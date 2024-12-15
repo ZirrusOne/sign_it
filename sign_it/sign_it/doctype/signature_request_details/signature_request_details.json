@@ -1,0 +1,135 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-12-06 01:43:03.718603",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document_type",
+  "column_break_saev",
+  "docname",
+  "section_break_wfsp",
+  "signature_url",
+  "expiry_date",
+  "signature_request_email",
+  "column_break_twyx",
+  "signed_by",
+  "signed_date",
+  "signature",
+  "is_signed",
+  "templates_tab",
+  "document"
+ ],
+ "fields": [
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Link",
+   "label": "Document type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "column_break_saev",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "docname",
+   "fieldtype": "Dynamic Link",
+   "label": "Docname",
+   "options": "document_type"
+  },
+  {
+   "fieldname": "section_break_wfsp",
+   "fieldtype": "Section Break",
+   "label": "Signature Details"
+  },
+  {
+   "fieldname": "signature_url",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Signature url"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "signature_request_email",
+   "fieldtype": "Table",
+   "label": "Signature Request Email",
+   "options": "Signature Request Email"
+  },
+  {
+   "fieldname": "column_break_twyx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "signed_by",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Signed by",
+   "options": "Email"
+  },
+  {
+   "fieldname": "signed_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Signed Date"
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Signature",
+   "in_list_view": 1,
+   "label": "signature"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_signed",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Signed"
+  },
+  {
+   "fieldname": "templates_tab",
+   "fieldtype": "Tab Break",
+   "label": "Templates"
+  },
+  {
+   "fieldname": "document",
+   "fieldtype": "Code",
+   "label": "Document",
+   "options": "JInja"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-15 10:24:44.088625",
+ "modified_by": "Administrator",
+ "module": "Sign It",
+ "name": "Signature Request Details",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Guest",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title> Document Signature Request Details</title>
+    <style>
+      /* General Reset */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f8f8;
+        color: #333333;
+      }
+      
+      /* Header */
+      header {
+        background: linear-gradient(90deg, #a44aff, #8235e0);
+        color: white;
+        padding: 15px 20px;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Buttons */
+      button,
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #8235e0;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+      }
+      
+      button:hover,
+      .btn:hover {
+        background-color: #a44aff;
+      }
+      
+      /* Form Inputs */
+      input[type='text'],
+      input[type='email'],
+      input[type='password'],
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 1rem;
+      }
+      
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+        border-color: #a44aff;
+        box-shadow: 0 0 5px rgba(164, 74, 255, 0.5);
+      }
+      
+      /* Links */
+      a {
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+      
+      a:hover {
+        color: #0056b3;
+      }
+      
+      /* Cards */
+      .card {
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 20px 0;
+      }
+      
+      .card-header {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #8235e0;
+        margin-bottom: 15px;
+      }
+      
+      .card-content {
+        font-size: 1rem;
+        color: #333333;
+      }
+      
+      /* Footer */
+      footer {
+        background-color: #f8f8f8;
+        color: #666666;
+        text-align: center;
+        padding: 15px 20px;
+        border-top: 1px solid #e0e0e0;
+      }
+      
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        header {
+          font-size: 1.2rem;
+          padding: 10px 15px;
+        }
+      
+        button,
+        .btn {
+          font-size: 0.9rem;
+          padding: 8px 15px;
+        }
+      
+        .card {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <table width="100%" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>
+          <table class="content" align="center" width="600" cellspacing="0" cellpadding="0">
+            <!-- Header -->
+            <tr>
+              <td style="padding: 20px 0; text-align: center">
+                {% set company = frappe.db.get_single_value('Global Defaults', 'default_company') %}
+                {% set company_logo = frappe.db.get_value('Company', company, 'company_logo') %}
+
+                {% if company_logo %}
+                  <img src="{{ frappe.utils.get_url() + company_logo }}" alt="{{ company }}" width="150" />
+                {% endif %}
+
+                {% if company %}
+                  <h1>{{ company }}</h1>
+                {% endif %}
+              </td>
+            </tr>
+
+            <!-- Content -->
+            <tr>
+              <td style="padding: 20px">
+                <h4><b>Document sign request</b></h4>
+                <br />
+                <p>
+                  <b>{{ doc.document_type }}--{{ doc.docname  }}</b>
+                </p>
+
+                <!-- Button -->
+                <p style="text-align: center">
+                  <a href="{{ frappe.get_url() }}/signature-request-details/new?encrypt={{ doc.encrypt  }}" style="
+                                    display: inline-block;
+                                    padding: 10px 20px;
+                                    background-color: #8235E0;
+                                    color: #ffffff;
+                                    text-decoration: none;
+                                    border-radius: 5px;
+                                ">Go to Document</a>
+                </p>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td style="background: #f5f5f5; padding: 20px; text-align: center">
+                &copy;{% if company %}{{ company }}{% endif %}. All rights reserved.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
