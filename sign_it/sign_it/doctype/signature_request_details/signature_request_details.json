@@ -1,14 +1,15 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{docname}",
  "creation": "2024-12-06 01:43:03.718603",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "document_type",
+  "reference_doctype",
   "column_break_saev",
-  "docname",
+  "reference_docname",
   "section_break_wfsp",
   "signature_url",
   "expiry_date",
@@ -19,24 +20,13 @@
   "signature",
   "is_signed",
   "templates_tab",
+  "signature_template",
   "document"
  ],
  "fields": [
   {
-   "fieldname": "document_type",
-   "fieldtype": "Link",
-   "label": "Document type",
-   "options": "DocType"
-  },
-  {
    "fieldname": "column_break_saev",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "docname",
-   "fieldtype": "Dynamic Link",
-   "label": "Docname",
-   "options": "document_type"
   },
   {
    "fieldname": "section_break_wfsp",
@@ -47,7 +37,8 @@
    "fieldname": "signature_url",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Signature url"
+   "label": "Signature url",
+   "read_only": 1
   },
   {
    "fieldname": "expiry_date",
@@ -88,6 +79,7 @@
    "default": "0",
    "fieldname": "is_signed",
    "fieldtype": "Check",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Signed"
   },
@@ -97,18 +89,42 @@
    "label": "Templates"
   },
   {
+   "fetch_from": "signature_template.document",
+   "fetch_if_empty": 1,
    "fieldname": "document",
    "fieldtype": "Code",
    "label": "Document",
    "options": "JInja"
+  },
+  {
+   "fieldname": "signature_template",
+   "fieldtype": "Link",
+   "label": "Signature Template",
+   "options": "Signature Template",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Document type",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reference_docname",
+   "fieldtype": "Dynamic Link",
+   "label": "Docname",
+   "options": "reference_doctype",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-15 10:24:44.088625",
+ "modified": "2024-12-16 11:43:19.444261",
  "modified_by": "Administrator",
  "module": "Sign It",
  "name": "Signature Request Details",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
