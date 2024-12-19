@@ -26,8 +26,7 @@ frappe.ui.form.on('Quotation', {
                                 <p>${__('Signature already added.')}</p>
                                 <p><b>${__('Signed Date:')}</b> ${signatureDetails.signed_date || __('N/A')}</p>
                                 <p><b>${__('Signed By:')}</b> ${signatureDetails.signed_by || __('N/A')}</p>
-                                <p><b>${__('Signature:')}</b> <img src="${signatureDetails.signature || ''}" alt="Signature" style="max-width: 100%;"></p>
-                            `
+                                <p ><b>${__('Signature:')}</b> <span class='cedarville-cursive-regular'>${signatureDetails.signature || __('N/A')} </span></p>                            `
                             });
                         } else {
                             // If no signed request exists, show the email dialog

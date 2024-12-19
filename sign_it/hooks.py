@@ -8,6 +8,7 @@ app_license = "mit"
 # Apps
 # ------------------
 
+
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
@@ -25,11 +26,17 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/sign_it/css/sign_it.css"
+app_include_css = [
+    "https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap",
+    "/assets/sign_it/css/custom.css",
+]
 # app_include_js = "/assets/sign_it/js/sign_it.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/sign_it/css/sign_it.css"
+web_include_css = [
+    "https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap",
+    "/assets/sign_it/css/custom.css",
+]
 # web_include_js = "/assets/sign_it/js/sign_it.js"
 
 # include custom scss in every website theme (without file extension ".scss")
