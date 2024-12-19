@@ -71,7 +71,7 @@
   },
   {
    "fieldname": "signature",
-   "fieldtype": "Signature",
+   "fieldtype": "Small Text",
    "in_list_view": 1,
    "label": "signature"
   },
@@ -120,7 +120,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-16 11:43:19.444261",
+ "modified": "2024-12-18 23:58:14.754635",
  "modified_by": "Administrator",
  "module": "Sign It",
  "name": "Signature Request Details",
